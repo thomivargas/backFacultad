@@ -9,6 +9,7 @@ export const signup = async (
   res: Response,
   next: NextFunction
 ) => {
+  
   try {
     const { nombre, email, contraseña, rol, imageUrl } = req.body;
 

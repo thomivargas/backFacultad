@@ -22,23 +22,15 @@ export const create = async (
   next: NextFunction
 ) => {
   try {
-    const user = req.user;
-
-    if(user.rol === 'admin'){
-      const { nombre, descripcion, precio, imageUrl } = req.body;
-  
-      const product: IProduct = new Product({
-        nombre,
-        descripcion,
-        precio,
-        imageUrl,
-      });
-      await product.save();
-  
-      return res.status(200).json(product);
-    } else {
-      return res.status(401).json('El usuario no tiene estos permisos')
-    }
+    const { nombre, descripcion, precio, imageUrl } = req.body;
+    const product: IProduct = new Product({
+      nombre,
+      descripcion,
+      precio,
+      imageUrl,
+    });
+    await product.save();
+    return res.status(200).json(product);
   } catch (error) {
     next(error);
   }

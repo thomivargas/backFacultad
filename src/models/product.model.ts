@@ -12,7 +12,7 @@ const productSchema = new Schema<IProduct>(
         },
         precio: {
           type: Number,
-          required: [true, "La contraseña es obligatoria"],
+          required: [true, "La precio es obligatoria"],
           min: 0
         },
         imageUrl: {

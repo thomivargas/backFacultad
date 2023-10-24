@@ -20,7 +20,7 @@ export const authMiddleware = async (
     const userFound = await User.findById(decoded.sub);
     if (!userFound) throw new UnauthorizedException("Unauthorized.");
     req.user = userFound;
-    next();
+    next()
   } catch (error) {
     return next(error);
   }
